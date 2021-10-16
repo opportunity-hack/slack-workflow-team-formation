@@ -1,1 +1,1 @@
-web: python workflow.py
+web: gunicorn application:app
