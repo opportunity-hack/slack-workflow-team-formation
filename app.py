@@ -21,6 +21,10 @@ app = App(token=os.environ.get("WORKFLOW_BOT_TOKEN"))
 flaskapp = Flask(__name__)
 flaskapp.secret_key = os.urandom(12)  # Generic key for dev purposes only
 
+@flaskapp.route("/test", methods=["GET"])
+def index():
+    print("Hello World")
+    return "Hello World"
 
 # Heroku
 from flask_heroku import Heroku
