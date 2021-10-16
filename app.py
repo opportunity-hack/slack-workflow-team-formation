@@ -21,9 +21,6 @@ app = App(token=os.environ.get("WORKFLOW_BOT_TOKEN"))
 flaskapp = Flask(__name__)
 flaskapp.secret_key = os.urandom(12)  # Generic key for dev purposes only
 
-from colorutils import Color
-
-
 
 # Heroku
 from flask_heroku import Heroku
