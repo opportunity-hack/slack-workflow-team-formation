@@ -1,5 +1,4 @@
 python-dotenv
 pygithub
 slack_bolt
-flask_heroku
-gunicorn
+

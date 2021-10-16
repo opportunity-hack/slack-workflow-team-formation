@@ -6,7 +6,6 @@ load_dotenv()
 
 from slack_bolt.workflows.step import WorkflowStep
 from github_repo_actions import create_repo, search_user
-from flask import Flask, redirect, url_for, render_template, request, session
 
 
 import logging
@@ -17,18 +16,6 @@ logging.basicConfig(level=logging.DEBUG)
 
 # Initializes your app with your bot token and socket mode handler
 app = App(token=os.environ.get("WORKFLOW_BOT_TOKEN"))
-
-flaskapp = Flask(__name__)
-flaskapp.secret_key = os.urandom(12)  # Generic key for dev purposes only
-
-@flaskapp.route("/test", methods=["GET"])
-def index():
-    print("Hello World")
-    return "Hello World"
-
-# Heroku
-from flask_heroku import Heroku
-heroku = Heroku(flaskapp)
 
 def save(ack, view, update):
     ack()
@@ -250,4 +237,3 @@ app.step(ws)
 # Start your app
 if __name__ == "__main__":
     SocketModeHandler(app, os.environ["WORKFLOW_APP_TOKEN"]).start()
-    flaskapp.run(debug=True, use_reloader=True, host="0.0.0.0")
