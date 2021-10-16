@@ -250,4 +250,4 @@ app.step(ws)
 # Start your app
 if __name__ == "__main__":
     SocketModeHandler(app, os.environ["WORKFLOW_APP_TOKEN"]).start()
-    app.run(debug=True, use_reloader=True, host="0.0.0.0")
+    flaskapp.run(debug=True, use_reloader=True, host="0.0.0.0")
