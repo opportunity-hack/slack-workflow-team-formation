@@ -1,1 +1,1 @@
-web: gunicorn app:flaskapp --log-file=-
+web: gunicorn --bind :3000 app:flaskapp --log-file=-
