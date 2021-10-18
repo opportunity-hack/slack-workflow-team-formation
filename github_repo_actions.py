@@ -11,7 +11,8 @@ def search_user(github_username):
     g = Github(TOKEN)
     try:
         user = g.get_user(login=github_username)
-        return user.email
+        print(user)
+        return user
     except Exception as e:
         print(e)
         return None
@@ -88,4 +89,4 @@ Examples of stellar readmes:
             print("Error:", e)
 
 #Test
-#search_user("gregvdasd")
+search_user("venkykhanna")
